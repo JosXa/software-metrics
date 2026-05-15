@@ -1,0 +1,38 @@
+{
+  "name": "software-metrics",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.1.2",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsgo --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsgo --noEmit",
+    "lint": "biome check --error-on-warnings .",
+    "format": "biome check --write .",
+    "ai:check": "biome check --write --error-on-warnings . && tsgo --noEmit && vitest run",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "4.3.0",
+    "@vitejs/plugin-react": "6.0.2",
+    "vite": "8.0.13",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwindcss": "4.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@typescript/native-preview": "7.0.0-dev.20260514.1",
+    "husky": "9.1.7",
+    "jsdom": "29.1.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.6"
+  }
+}

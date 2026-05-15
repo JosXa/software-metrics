@@ -1,0 +1,7 @@
+"Name","Domain","Quality Attributes"
+"agility","Software Development","Debuggability; Extensibility; Portability; Scalability; Securability; Testability; Understandability"
+"RASUI","Software Quality","Availability; Installability; Reliability; Serviceability/Supportability; Usability"
+"FURPS","Requirements Engineering","Functionality; Performance; Reliability; Serviceability/Supportability; Usability"
+"RASR","Databases","Availability; Recoverability; Reliability; Scalability"
+"ACID","Databases","Atomicity; Consistency; Durability; Integrity"
+"RAMS","Safety-critical systems","Availability; Maintainability; Reliability; Safety"

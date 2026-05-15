@@ -1,0 +1,51 @@
+[      29ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:14336
+[ 1745858ms] TypeError: Cannot read properties of undefined (reading 'map')
+    at RailCommandStrip (http://localhost:5175/src/rail.tsx?t=1778847250658:125:30)
+    at Object.react_stack_bottom_frame (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:12867:12)
+    at renderWithHooks (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:4212:19)
+    at updateFunctionComponent (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5568:16)
+    at beginWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:6139:20)
+    at runWithFiberInDEV (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:850:66)
+    at performUnitOfWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8428:92)
+    at workLoopSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8324:37)
+    at renderRootSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8308:6)
+    at performWorkOnRoot (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:7993:27)
+[ 1745858ms] [WARNING] %s
+
+%s
+ An error occurred in the <RailCommandStrip> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5256
+[ 1758449ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:14336
+[ 1758566ms] TypeError: Cannot read properties of undefined (reading 'map')
+    at RailCommandStrip (http://localhost:5175/src/rail.tsx?t=1778847250658:125:30)
+    at Object.react_stack_bottom_frame (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:12867:12)
+    at renderWithHooks (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:4212:19)
+    at updateFunctionComponent (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5568:16)
+    at beginWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:6139:20)
+    at runWithFiberInDEV (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:850:66)
+    at performUnitOfWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8428:92)
+    at workLoopSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8324:37)
+    at renderRootSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8308:6)
+    at performWorkOnRoot (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:7993:27)
+[ 1758566ms] [WARNING] %s
+
+%s
+ An error occurred in the <RailCommandStrip> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5256
+[ 1760700ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:14336
+[ 1760818ms] TypeError: Cannot read properties of undefined (reading 'map')
+    at RailCommandStrip (http://localhost:5175/src/rail.tsx?t=1778847250658:125:30)
+    at Object.react_stack_bottom_frame (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:12867:12)
+    at renderWithHooks (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:4212:19)
+    at updateFunctionComponent (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5568:16)
+    at beginWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:6139:20)
+    at runWithFiberInDEV (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:850:66)
+    at performUnitOfWork (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8428:92)
+    at workLoopSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8324:37)
+    at renderRootSync (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:8308:6)
+    at performWorkOnRoot (http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:7993:27)
+[ 1760817ms] [WARNING] %s
+
+%s
+ An error occurred in the <RailCommandStrip> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=5898a346:5256

@@ -1,0 +1,299 @@
+- generic [ref=e36]:
+  - button "Skip to content" [ref=e37] [cursor=pointer]
+  - generic [ref=e39]:
+    - navigation "Page list" [ref=e42]:
+      - generic [ref=e43]:
+        - link "All docs" [ref=e44] [cursor=pointer]:
+          - /url: /docs?source=doc-title-bar
+          - generic [ref=e45]: 
+        - button "Search" [ref=e47] [cursor=pointer]:
+          - generic [ref=e48]: 
+      - generic [ref=e55]:
+        - generic [ref=e56]: Software Quality
+        - textbox "Name your doc" [ref=e57]: Software Quality
+      - list [ref=e59]:
+        - listitem
+        - listitem [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: Pages
+            - button "Options" [ref=e65] [cursor=pointer]:
+              - generic [ref=e66]: 
+          - list "Pages" [ref=e70]:
+            - listitem [ref=e71]:
+              - generic [ref=e74]:
+                - link "Software Quality Attributes" [ref=e75] [cursor=pointer]:
+                  - /url: /d/_dNDFC6h5r8t/Software-Quality-Attributes_suMlkMIN
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img "icon picker"
+                    - generic:
+                      - generic:
+                        - generic: Software Quality Attributes
+                  - generic:
+                    - button "Software Quality Attributes Options":
+                      - generic [ref=e76] [cursor=pointer]: 
+    - generic [ref=e77]:
+      - banner:
+        - generic [ref=e79]:
+          - button "Show pages" [ref=e80] [cursor=pointer]:
+            - generic [ref=e81]: 
+          - link "Software Quality" [ref=e83] [cursor=pointer]:
+            - /url: /d/_dNDFC6h5r8t/Software-Quality-Attributes_suMlkMIN
+            - generic [ref=e87]: Software Quality
+        - generic [ref=e88]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: Create an account to start editing
+            - button "Sign up for free" [ref=e92] [cursor=pointer]
+          - button "Doc actions and settings" [ref=e96] [cursor=pointer]:
+            - generic [ref=e97]: 
+      - generic [ref=e107]:
+        - generic [ref=e110]:
+          - button "Copy link to this page" [ref=e114] [cursor=pointer]:
+            - generic [ref=e115]: 
+          - heading "Change icon Software Quality Attributes" [level=1] [ref=e116]:
+            - button "Change icon" [disabled] [ref=e119]:
+              - img "icon picker" [ref=e122]
+            - generic [ref=e123]: Software Quality Attributes
+        - generic [active] [ref=e124]:
+          - generic [ref=e125]:
+            - text: "Main Source:"
+            - generic [ref=e126]:
+              - link "https://en.wikipedia.org/wiki/List_of_system_quality_attributes" [ref=e130] [cursor=pointer]:
+                - /url: https://en.wikipedia.org/wiki/List_of_system_quality_attributes
+              - generic: ⁠
+            - text: ⁠
+          - generic [ref=e131]:
+            - text: ⁠
+            - generic [ref=e132]:
+              - link [ref=e138] [cursor=pointer]:
+                - /url: https://coda-us-west-2-prod-blobs-upload.s3.us-west-2.amazonaws.com/packsBlobs/817c2656953b35e37c16be0a786c14ab8285369f6de0f610353ec0b0378199eb?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAQNTH22RI2FNTFNX2%2F20240521%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240521T165225Z&X-Amz-Expires=900&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEND%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDkTVYbJaKrrZoMOYgeiLkkxsQvTH%2BTd%2FYK6HPrpywGYAIhAMYKLr1bCAblZX7lnpzraw8pRv4PbRgiN7Fff3blY2p0KocFCEkQABoMMDI5MjA4Nzk0MTkzIgzsxKAu9f4t1%2Btl1U8q5ATM1EV7%2FoXA%2BfXVvKEhbXIkRzdD9yFir3S1%2B3b9JHc69r9YSSOPRLIBrEDJVK59qSdGoK6Br2F27Fg%2BsSWbVXFaO8lDOi6PlshlchJDYCJ%2BMBCbNj%2Fcxf%2FWVpZCmc8CCc7PjKNwfwLWBZnva%2Bw3aVxcieGKtUtz0%2FW0f%2BbMRLrfJpyT9IrRiEkui1azsnupCJM6HynpflQ4DFmrbEDWMBg2VDIoj8xYucX7JmMNOzVxk8%2Bkgl3oAhds%2F9XTKPEnNqyATYMQsminFkawovC6cRqMMb9wn8TlWbaT2uSn8uuooSeNYfpicaybfQIeTr%2Fh7l%2BKtNXqmKxysaH5i0Ei36L9JS95WL9UYRf33L%2F6z%2BRKDP%2FfyQPCNCby12WeOCLIdKeoJtTWy99In0NvFD%2FtXeW3rqC1wL5eIxjsOa6Nj3vyKUZQnxWau%2FQZzzx2LjW0zfLo7hpuanMb%2FFiyOzmj%2F94mz%2FDc04GOll9BvdI867%2F4JA80lae6uWuo7Fc2g0x8OnsSm94b%2FbN54zj%2F%2FEiibtYbackq94ssuSpd%2FesZD7IeOd8DwPeOKGCIq817vGtzuyNlPsZN%2B%2BsdgVgELOUvYAnW8EaI7NhXQw6coFiFQ9aZ2QtDaBw%2FiOrFDYtKp%2B%2Bk4VezzPkvVUaKKQ4ftq4ceyuU90n7G4joqHcDoVS4HnuLlwREGUqIrhPROXlXjrUTiD5uPyg0n%2F57BnfEqOV7BipA6e2R6l3Hyl%2Be1D1ipCXaVdK22kBtSqzPZVlHEgsT57RXTMfXYsg1gy6JfYFWjhmHjxMzbb%2Bn40%2Bq4ONoEqWnAGj40W4ws5GzsgY6mQEfvn5QRmwEtJGwFyLqGCYVgc%2BfEAN3u6tnMpGG%2FJv9Ir8sNEhbELJ0bYSTF1KnKE0FhQ%2BPzklqUnCLcROnx6pVKdwVIj5qEsjh1yIH%2By0F3Xhk%2FhYgJ7VhKFkWjh805%2FkzDDBj3yhBobXmOrJHPNRdSOJYILyTE%2FSYrw%2BC%2BuPKdF6rPTiZy49wLIUZtYqvScMVCZFi%2B29PzTI%3D&X-Amz-Signature=f8867f94b10ba9f54048d5075af56e820b19691b2aa853e9a0e7dcdaffee4dc7&X-Amz-SignedHeaders=host&x-id=GetObject
+              - generic: ⁠
+            - text: ⁠
+          - generic [ref=e140]:
+            - generic [ref=e142]:
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - generic:
+                    - generic [ref=e150]:
+                      - generic [ref=e151]: Categories / Acronyms
+                      - textbox "Name your table" [ref=e152]: Categories / Acronyms
+                    - button "expand search" [ref=e155] [cursor=pointer]:
+                      - img "expand search" [ref=e157]: 
+                - textbox [ref=e158]
+              - generic [ref=e159]:
+                - generic [ref=e160]:
+                  - generic [ref=e164]:
+                    - columnheader "Name" [ref=e165]:
+                      - generic [ref=e167]:
+                        - generic: Name
+                    - columnheader "Domain" [ref=e168]:
+                      - generic [ref=e170]:
+                        - generic: Domain
+                    - columnheader "Quality Attributes" [ref=e171]:
+                      - generic [ref=e173]:
+                        - generic: Quality Attributes
+                  - grid [ref=e180]:
+                    - generic [ref=e181]:
+                      - row "agility Software Development" [ref=e182]:
+                        - gridcell "agility" [ref=e185]:
+                          - generic [ref=e187]: agility
+                        - gridcell "Software Development" [ref=e188]:
+                          - generic [ref=e190]: Software Development
+                        - gridcell [ref=e191]:
+                          - combobox [ref=e192]:
+                            - generic [ref=e193]:
+                              - generic [ref=e195] [cursor=pointer]: Debuggability
+                              - generic [ref=e197] [cursor=pointer]: Extensibility
+                              - generic [ref=e199] [cursor=pointer]: Portability
+                              - generic [ref=e201] [cursor=pointer]: Scalability
+                              - generic [ref=e203] [cursor=pointer]: Securability
+                              - generic [ref=e205] [cursor=pointer]: Testability
+                              - generic [ref=e207] [cursor=pointer]: Understandability
+                      - row "RASUI Software Quality" [ref=e208]:
+                        - gridcell "RASUI" [ref=e211]:
+                          - generic [ref=e213]: RASUI
+                        - gridcell "Software Quality" [ref=e214]:
+                          - generic [ref=e216]: Software Quality
+                        - gridcell [ref=e217]:
+                          - combobox [ref=e218]:
+                            - generic [ref=e219]:
+                              - generic [ref=e221] [cursor=pointer]: Availability
+                              - generic [ref=e223] [cursor=pointer]: Installability
+                              - generic [ref=e225] [cursor=pointer]: Reliability
+                              - generic [ref=e227] [cursor=pointer]: Serviceability/Supportability
+                              - generic [ref=e229] [cursor=pointer]: Usability
+                      - row "Expand row ⁠ FURPS ⁠ ⁠ Requirements Engineering" [ref=e540]:
+                        - button "Expand row" [ref=e542] [cursor=pointer]:
+                          - generic [ref=e543]: 
+                        - gridcell "⁠ FURPS ⁠ ⁠" [ref=e233]:
+                          - generic [ref=e236]:
+                            - text: ⁠
+                            - generic [ref=e237]:
+                              - link "FURPS" [ref=e239] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/FURPS
+                              - generic: ⁠
+                            - text: ⁠
+                        - gridcell "Requirements Engineering" [ref=e240]:
+                          - generic [ref=e242]: Requirements Engineering
+                        - gridcell [ref=e243]:
+                          - combobox [ref=e244]:
+                            - generic [ref=e245]:
+                              - generic [ref=e247] [cursor=pointer]: Functionality
+                              - generic [ref=e249] [cursor=pointer]: Performance
+                              - generic [ref=e251] [cursor=pointer]: Reliability
+                              - generic [ref=e253] [cursor=pointer]: Serviceability/Supportability
+                              - generic [ref=e255] [cursor=pointer]: Usability
+                      - row "RASR Databases" [ref=e256]:
+                        - gridcell "RASR" [ref=e259]:
+                          - generic [ref=e261]: RASR
+                        - gridcell "Databases" [ref=e262]:
+                          - generic [ref=e264]: Databases
+                        - gridcell [ref=e265]:
+                          - combobox [ref=e266]:
+                            - generic [ref=e267]:
+                              - generic [ref=e269] [cursor=pointer]: Availability
+                              - generic [ref=e271] [cursor=pointer]: Recoverability
+                              - generic [ref=e273] [cursor=pointer]: Reliability
+                              - generic [ref=e275] [cursor=pointer]: Scalability
+                      - row "⁠ ACID ⁠ ⁠ Databases" [ref=e276]:
+                        - gridcell "⁠ ACID ⁠ ⁠" [ref=e279]:
+                          - generic [ref=e282]:
+                            - text: ⁠
+                            - generic [ref=e283]:
+                              - link "ACID" [ref=e285] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ACID
+                              - generic: ⁠
+                            - text: ⁠
+                        - gridcell "Databases" [ref=e286]:
+                          - generic [ref=e288]: Databases
+                        - gridcell [ref=e289]:
+                          - combobox [ref=e290]:
+                            - generic [ref=e291]:
+                              - generic [ref=e293] [cursor=pointer]: Atomicity
+                              - generic [ref=e295] [cursor=pointer]: Consistency
+                              - generic [ref=e297] [cursor=pointer]: Durability
+                              - generic [ref=e299] [cursor=pointer]: Integrity
+                      - row "⁠ RAMS ⁠ ⁠ Safety-critical systems" [ref=e300]:
+                        - gridcell "⁠ RAMS ⁠ ⁠" [ref=e303]:
+                          - generic [ref=e306]:
+                            - text: ⁠
+                            - generic [ref=e307]:
+                              - link "RAMS" [ref=e309] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/RAMS
+                              - generic: ⁠
+                            - text: ⁠
+                        - gridcell "Safety-critical systems" [ref=e310]:
+                          - generic [ref=e312]: Safety-critical systems
+                        - gridcell [ref=e313]:
+                          - combobox [ref=e314]:
+                            - generic [ref=e315]:
+                              - generic [ref=e317] [cursor=pointer]: Availability
+                              - generic [ref=e319] [cursor=pointer]: Maintainability
+                              - generic [ref=e321] [cursor=pointer]: Reliability
+                              - generic [ref=e323] [cursor=pointer]: Safety
+                    - generic [ref=e324]: .
+                - scrollbar [ref=e327]
+            - button "Options" [ref=e330] [cursor=pointer]:
+              - img "line actions" [ref=e331]: 
+            - generic: ⁠
+          - generic [ref=e332]:
+            - generic [ref=e334]:
+              - generic [ref=e340]:
+                - generic [ref=e341]:
+                  - generic:
+                    - generic [ref=e342]:
+                      - generic [ref=e343]: Quality Attributes
+                      - textbox "Name your table" [ref=e344]: Quality Attributes
+                    - button "expand search" [ref=e347] [cursor=pointer]:
+                      - img "expand search" [ref=e349]: 
+                - textbox [ref=e350]
+              - generic [ref=e351]:
+                - grid [ref=e368]:
+                  - generic [ref=e369]:
+                    - row "Accessibility The degree to which the software is usable by people with disabilities, often through assistive technologies." [ref=e370]:
+                      - gridcell "Accessibility" [ref=e373]:
+                        - generic [ref=e375]: Accessibility
+                      - gridcell "The degree to which the software is usable by people with disabilities, often through assistive technologies." [ref=e376]:
+                        - generic [ref=e380]: The degree to which the software is usable by people with disabilities, often through assistive technologies.
+                      - gridcell [ref=e381]:
+                        - combobox [ref=e382]
+                      - gridcell [ref=e384]:
+                        - combobox [ref=e385]:
+                          - generic [ref=e386]:
+                            - generic [ref=e388] [cursor=pointer]: Usability
+                            - generic [ref=e390] [cursor=pointer]: Availability
+                            - generic [ref=e392] [cursor=pointer]: Localizability
+                            - generic [ref=e394] [cursor=pointer]: Understandability
+                      - gridcell [ref=e395]:
+                        - combobox [ref=e396]:
+                          - generic [ref=e397]:
+                            - generic [ref=e399] [cursor=pointer]: Complexity
+                            - generic [ref=e401] [cursor=pointer]: Securability
+                    - row "Accountability The degree to which the software keeps accurate records and has the ability to explain its operations." [ref=e402]:
+                      - gridcell "Accountability" [ref=e405]:
+                        - generic [ref=e407]: Accountability
+                      - gridcell "The degree to which the software keeps accurate records and has the ability to explain its operations." [ref=e408]:
+                        - generic [ref=e412]: The degree to which the software keeps accurate records and has the ability to explain its operations.
+                      - gridcell [ref=e413]:
+                        - combobox [ref=e414]
+                      - gridcell [ref=e416]:
+                        - combobox [ref=e417]:
+                          - generic [ref=e418]:
+                            - generic [ref=e420] [cursor=pointer]: Credibility
+                            - generic [ref=e422] [cursor=pointer]: Integrity
+                            - generic [ref=e424] [cursor=pointer]: Auditability
+                            - generic [ref=e426] [cursor=pointer]: Traceability
+                            - generic [ref=e428] [cursor=pointer]: Reliability
+                            - generic [ref=e430] [cursor=pointer]: Correctness
+                      - gridcell [ref=e431]:
+                        - combobox [ref=e432]:
+                          - generic [ref=e433]:
+                            - generic [ref=e435] [cursor=pointer]: Autonomy
+                            - generic [ref=e437] [cursor=pointer]: Flexibility
+                            - generic [ref=e439] [cursor=pointer]: Privacy
+                            - generic [ref=e441] [cursor=pointer]: Complexity
+                            - generic [ref=e443] [cursor=pointer]: Affordability
+                    - row "Accuracy The capability of the software to retrieve and rank data accurately according to given specifications." [ref=e444]:
+                      - gridcell "Accuracy" [ref=e447]:
+                        - generic [ref=e449]: Accuracy
+                      - gridcell "The capability of the software to retrieve and rank data accurately according to given specifications." [ref=e450]:
+                        - generic [ref=e454]: The capability of the software to retrieve and rank data accurately according to given specifications.
+                      - gridcell [ref=e455]:
+                        - combobox [ref=e456]
+                      - gridcell [ref=e458]:
+                        - combobox [ref=e459]
+                      - gridcell [ref=e461]:
+                        - combobox [ref=e462]
+                    - row "Adaptability The degree to which the software adapts its behavior based on information about its users and environment." [ref=e464]:
+                      - gridcell "Adaptability" [ref=e467]:
+                        - generic [ref=e469]: Adaptability
+                      - gridcell "The degree to which the software adapts its behavior based on information about its users and environment." [ref=e470]:
+                        - generic [ref=e474]: The degree to which the software adapts its behavior based on information about its users and environment.
+                      - gridcell [ref=e475]:
+                        - combobox [ref=e476]
+                      - gridcell [ref=e478]:
+                        - combobox [ref=e479]
+                      - gridcell [ref=e481]:
+                        - combobox [ref=e482]
+                    - row "Administrability The extent to which users with elevated permissions can effectively configure the software." [ref=e484]:
+                      - gridcell "Administrability" [ref=e487]:
+                        - generic [ref=e489]: Administrability
+                      - gridcell "The extent to which users with elevated permissions can effectively configure the software." [ref=e490]:
+                        - generic [ref=e494]: The extent to which users with elevated permissions can effectively configure the software.
+                      - gridcell [ref=e495]:
+                        - combobox [ref=e496]
+                      - gridcell [ref=e498]:
+                        - combobox [ref=e499]
+                      - gridcell [ref=e501]:
+                        - combobox [ref=e502]
+                  - generic [ref=e505]:
+                    - text: .
+                    - button "90 Count" [disabled] [ref=e509] [cursor=pointer]:
+                      - generic [ref=e510]: "90"
+                      - generic [ref=e512]: Count
+                - scrollbar [ref=e519]
+            - button "Options" [ref=e522] [cursor=pointer]:
+              - img "line actions" [ref=e523]: 
+            - generic: ⁠

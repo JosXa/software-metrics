@@ -1,0 +1,790 @@
+{
+  "title": "Software Quality Attributes",
+  "source": "https://coda.io/d/Software-Quality_dNDFC6h5r8t/Software-Quality-Attributes_suMlkMIN#_luWEQ0b-",
+  "mainSource": "https://en.wikipedia.org/wiki/List_of_system_quality_attributes",
+  "extractedAt": "2026-05-15T02:29:29.281Z",
+  "categories": [
+    {
+      "name": "agility",
+      "domain": "Software Development",
+      "qualityAttributes": [
+        "Debuggability",
+        "Extensibility",
+        "Portability",
+        "Scalability",
+        "Securability",
+        "Testability",
+        "Understandability"
+      ]
+    },
+    {
+      "name": "RASUI",
+      "domain": "Software Quality",
+      "qualityAttributes": [
+        "Availability",
+        "Installability",
+        "Reliability",
+        "Serviceability/Supportability",
+        "Usability"
+      ]
+    },
+    {
+      "name": "FURPS",
+      "domain": "Requirements Engineering",
+      "qualityAttributes": [
+        "Functionality",
+        "Performance",
+        "Reliability",
+        "Serviceability/Supportability",
+        "Usability"
+      ]
+    },
+    {
+      "name": "RASR",
+      "domain": "Databases",
+      "qualityAttributes": [
+        "Availability",
+        "Recoverability",
+        "Reliability",
+        "Scalability"
+      ]
+    },
+    {
+      "name": "ACID",
+      "domain": "Databases",
+      "qualityAttributes": [
+        "Atomicity",
+        "Consistency",
+        "Durability",
+        "Integrity"
+      ]
+    },
+    {
+      "name": "RAMS",
+      "domain": "Safety-critical systems",
+      "qualityAttributes": [
+        "Availability",
+        "Maintainability",
+        "Reliability",
+        "Safety"
+      ]
+    }
+  ],
+  "qualityAttributes": [
+    {
+      "name": "Accessibility",
+      "definition": "The degree to which the software is usable by people with disabilities, often through assistive technologies.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [
+        "Usability",
+        "Availability",
+        "Localizability",
+        "Understandability"
+      ],
+      "hasNegativeEffectsOn": [
+        "Complexity",
+        "Securability"
+      ]
+    },
+    {
+      "name": "Accountability",
+      "definition": "The degree to which the software keeps accurate records and has the ability to explain its operations.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [
+        "Credibility",
+        "Integrity",
+        "Auditability",
+        "Traceability",
+        "Reliability",
+        "Correctness"
+      ],
+      "hasNegativeEffectsOn": [
+        "Autonomy",
+        "Flexibility",
+        "Privacy",
+        "Complexity",
+        "Affordability"
+      ]
+    },
+    {
+      "name": "Accuracy",
+      "definition": "The capability of the software to retrieve and rank data accurately according to given specifications.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Adaptability",
+      "definition": "The degree to which the software adapts its behavior based on information about its users and environment.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Administrability",
+      "definition": "The extent to which users with elevated permissions can effectively configure the software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Affordability",
+      "definition": "The cost of the software as it relates to what the purchaser can afford.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Atomicity",
+      "definition": "In databases, the assurance that transactions are treated as single units that either fully succeed or fail.",
+      "categoryOrAcronym": [
+        "ACID"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Auditability",
+      "definition": "The degree to which the software logs actions and allows authorized inspection of these logs.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Autonomy",
+      "definition": "The degree to which service-oriented software operates independently from its execution environment.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Availability",
+      "definition": "The degree to which the software is ready and available for use.",
+      "categoryOrAcronym": [
+        "RASUI",
+        "RASR",
+        "RAMS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Capabilities",
+      "definition": "The range of actions, tasks, or functions that the software can perform.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Compatibility",
+      "definition": "The degree to which the software can work effectively with other systems or software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Complexity",
+      "definition": "The degree of difficulty to understand, modify, or maintain the software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Composability",
+      "definition": "The degree to which the software's components can be assembled and reassembled.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Confidentiality",
+      "definition": "The degree to which the software protects sensitive information from unauthorized access.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Configurability",
+      "definition": "The extent to which settings and features within the software can be customized by the user.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Consistency",
+      "definition": "The degree to which the software behaves and presents itself uniformly across different scenarios.",
+      "categoryOrAcronym": [
+        "ACID"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Correctness",
+      "definition": "The extent to which the software performs its functions without error.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Credibility",
+      "definition": "The degree to which the software is reliable and induces trust.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Customizability",
+      "definition": "The degree to which the software allows the user to tailor features to their specific needs.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Debuggability",
+      "definition": "The ease with which bugs can be discovered and fixed within the software.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Degradability",
+      "definition": "The degree to which the software can gracefully reduce its functionality in the face of system constraints.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Demonstrability",
+      "definition": "The ease with which the software's functions and capabilities can be demonstrated to others.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Dependability",
+      "definition": "The extent to which the software can be relied upon to perform its functions accurately and consistently.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [
+        "Availability",
+        "Reliability",
+        "Safety",
+        "Integrity",
+        "Maintainability"
+      ],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Deployability",
+      "definition": "The degree to which the software can be easily installed, configured, and put into operation.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Determinability",
+      "definition": "The extent to which the software's behavior can be predictably determined from its inputs and conditions.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Discoverability",
+      "definition": "The degree to which the software's features and functionalities are easily discoverable by users.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Distributability",
+      "definition": "The extent to which the software can be distributed across multiple platforms and environments.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Durability",
+      "definition": "The degree to which the software can endure stress and continue to function over extended periods of time.",
+      "categoryOrAcronym": [
+        "ACID"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Effectiveness",
+      "definition": "The ability of the software to achieve its goals and produce desired outcomes.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Efficiency",
+      "definition": "The degree to which the software performs its functions without wasting resources.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Evolvability",
+      "definition": "The extent to which the software can adapt to future changes in its environment or requirements.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Extensibility",
+      "definition": "The degree to which new features or functionalities can be added to the existing software.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Failure Transparency",
+      "definition": "The extent to which the software reveals or conceals its failures and the impact of those failures.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Fault-Tolerance",
+      "definition": "The degree to which the software continues to function in the presence of errors or failures.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Fidelity",
+      "definition": "The degree to which the software accurately represents or simulates real-world conditions or data.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Flexibility",
+      "definition": "The ease with which the software can adapt to different tasks or scenarios.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Functionality",
+      "definition": "The range and capabilities of tasks that the software can perform.",
+      "categoryOrAcronym": [
+        "FURPS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Inspectability",
+      "definition": "The degree to which the software’s internal workings can be examined for debugging or analysis.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Installability",
+      "definition": "The ease with which the software can be installed and set up for use.",
+      "categoryOrAcronym": [
+        "RASUI"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Integrity",
+      "definition": "The degree to which the software prevents unauthorized access and maintains the accuracy of data.",
+      "categoryOrAcronym": [
+        "ACID"
+      ],
+      "hasPositiveEffectsOn": [
+        "Securability",
+        "Survivability"
+      ],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Interchangeability",
+      "definition": "The ease with which components within the software can be exchanged.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Interoperability",
+      "definition": "The degree to which the software can interact with other systems or software components.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Learnability",
+      "definition": "The ease with which new users can understand and use the software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Localizability",
+      "definition": "The ability of the software to be adapted for different languages, regions, and cultures.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Maintainability",
+      "definition": "The ease with which the software can be modified, updated, or corrected.",
+      "categoryOrAcronym": [
+        "RAMS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Manageability",
+      "definition": "The extent to which the software can be efficiently managed and monitored.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Mobility",
+      "definition": "The ability of the software to operate effectively on different devices or environments.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Modifiability",
+      "definition": "The degree to which the software can be easily changed to add new features or fix issues.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Modularity",
+      "definition": "The extent to which the software is composed of independent, interchangeable modules.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Observability",
+      "definition": "The degree to which internal states of the software can be observed through outputs.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Operability",
+      "definition": "The ease with which the software can be kept in a functioning state.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Orthogonality",
+      "definition": "The independence between different features or components of the software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Performance",
+      "definition": "The effectiveness of the software in terms of speed, efficiency, and resource usage.",
+      "categoryOrAcronym": [
+        "FURPS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Portability",
+      "definition": "The ease with which the software can be moved from one environment to another.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Precision",
+      "definition": "The accuracy with which the software performs its calculations or processes.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Predictability",
+      "definition": "The degree to which the software's behavior can be anticipated.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Privacy",
+      "definition": "The degree to which the software ensures that unauthorized users cannot access, modify, or delete personal information.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Producibility",
+      "definition": "The ease with which the software can be reliably reproduced or replicated.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Provability",
+      "definition": "The extent to which formal methods can be used to prove the software's correctness.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Recoverability",
+      "definition": "The ability of the software to restore its state and functionality after failure.",
+      "categoryOrAcronym": [
+        "RASR"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Relevance",
+      "definition": "The degree to which the software meets the real-world needs of its users.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Reliability",
+      "definition": "The ability of the software to function correctly and consistently.",
+      "categoryOrAcronym": [
+        "RASUI",
+        "FURPS",
+        "RASR",
+        "RAMS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Repeatability",
+      "definition": "The degree to which the software provides the same output for the same input under the same conditions.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Reproducibility",
+      "definition": "The ability to get the same results consistently across different environments and conditions.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Resilience",
+      "definition": "The ability of the software to adapt and recover from adversity.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Responsiveness",
+      "definition": "The software's ability to quickly respond to user input or system events.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Reusability",
+      "definition": "The extent to which components of the software can be used in different contexts.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Robustness",
+      "definition": "The ability of the software to cope with errors and unexpected conditions.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Safety",
+      "definition": "The degree to which the software avoids causing harm to users or the environment.",
+      "categoryOrAcronym": [
+        "RAMS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Scalability",
+      "definition": "The software's ability to handle increased loads efficiently.",
+      "categoryOrAcronym": [
+        "agility",
+        "RASR"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Seamlessness",
+      "definition": "The degree to which the software integrates its various components without visible gaps or inconsistencies.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Securability",
+      "definition": "The ability of the software to protect against unauthorized access and data breaches.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Dependability"
+      ],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Self-Sustainability",
+      "definition": "The software's ability to maintain its operational state without external intervention.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Serviceability/Supportability",
+      "definition": "The ease with which the software can be serviced, maintained, and supported.",
+      "categoryOrAcronym": [
+        "RASUI",
+        "FURPS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Simplicity",
+      "definition": "The degree to which the software is easy to understand and use.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Stability",
+      "definition": "The extent to which the software remains reliable under different conditions.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Standards Compliance",
+      "definition": "The degree to which the software adheres to industry or regulatory standards.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Survivability",
+      "definition": "The ability of the software to endure and recover from catastrophic failures.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Sustainability",
+      "definition": "The ability of the software to endure over time while meeting environmental and social requirements.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Tailorability",
+      "definition": "The ease with which the software can be customized to meet specific user needs.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Testability",
+      "definition": "The degree to which the software can be effectively tested to ensure it meets its requirements.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Timeliness",
+      "definition": "The software's ability to perform tasks or provide responses within an acceptable time frame.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Traceability",
+      "definition": "The ability to track changes, data flow, or user actions throughout the software.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Transparency",
+      "definition": "The degree to which the software's actions and decision-making processes are visible to the user.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Ubiquity",
+      "definition": "The extent to which the software is available and functional across various platforms and devices.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Understandability",
+      "definition": "The ease with which users can comprehend the software's functions and use.",
+      "categoryOrAcronym": [
+        "agility"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Upgradability",
+      "definition": "The ease with which new features can be added or existing features can be modified.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Usability",
+      "definition": "The degree to which the software is easy to use and provides a good user experience.",
+      "categoryOrAcronym": [
+        "RASUI",
+        "FURPS"
+      ],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    },
+    {
+      "name": "Vulnerability",
+      "definition": "The extent to which the software is susceptible to unauthorized access or exploitation.",
+      "categoryOrAcronym": [],
+      "hasPositiveEffectsOn": [],
+      "hasNegativeEffectsOn": []
+    }
+  ]
+}

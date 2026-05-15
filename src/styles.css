@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+
+/*
+  Theme tokens use OKLCH. Neutrals are tinted toward the brand hue (220, a
+  cool slate-blue) so nothing reads as #000 / #fff. The accent is a single
+  teal-leaning cyan; we only ever introduce extra hue when an effect's sign
+  needs to be communicated (positive=green, negative=red).
+*/
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --surface-0: oklch(98.5% 0.005 230);
+  --surface-1: oklch(96.5% 0.006 230);
+  --surface-2: oklch(93.5% 0.008 230);
+  --surface-3: oklch(89% 0.01 230);
+
+  --line-soft: oklch(89% 0.012 230);
+  --line: oklch(82% 0.014 230);
+  --line-strong: oklch(70% 0.018 230);
+
+  --ink-0: oklch(22% 0.02 230);
+  --ink-1: oklch(36% 0.018 230);
+  --ink-2: oklch(52% 0.014 230);
+  --ink-3: oklch(66% 0.012 230);
+
+  --accent: oklch(58% 0.12 200);
+  --accent-soft: oklch(94% 0.04 200);
+  --accent-ink: oklch(28% 0.08 200);
+  --accent-ring: oklch(70% 0.12 200 / 0.45);
+
+  --positive: oklch(58% 0.13 155);
+  --positive-soft: oklch(95% 0.04 155);
+  --negative: oklch(58% 0.16 25);
+  --negative-soft: oklch(95% 0.05 25);
+
+  --shadow-rim: 0 1px 0 0 oklch(100% 0 0 / 0.6) inset, 0 0 0 1px oklch(20% 0.02 230 / 0.04);
+  --shadow-panel: 0 1px 2px oklch(20% 0.02 230 / 0.04), 0 8px 24px oklch(20% 0.02 230 / 0.06);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --surface-0: oklch(16% 0.012 230);
+  --surface-1: oklch(19% 0.014 230);
+  --surface-2: oklch(23% 0.016 230);
+  --surface-3: oklch(28% 0.018 230);
+
+  --line-soft: oklch(28% 0.018 230);
+  --line: oklch(34% 0.02 230);
+  --line-strong: oklch(46% 0.022 230);
+
+  --ink-0: oklch(96% 0.008 230);
+  --ink-1: oklch(84% 0.012 230);
+  --ink-2: oklch(68% 0.014 230);
+  --ink-3: oklch(54% 0.014 230);
+
+  --accent: oklch(78% 0.13 195);
+  --accent-soft: oklch(28% 0.06 200);
+  --accent-ink: oklch(92% 0.08 195);
+  --accent-ring: oklch(78% 0.13 195 / 0.5);
+
+  --positive: oklch(76% 0.15 155);
+  --positive-soft: oklch(28% 0.06 155);
+  --negative: oklch(72% 0.17 25);
+  --negative-soft: oklch(30% 0.07 25);
+
+  --shadow-rim: 0 1px 0 0 oklch(100% 0 0 / 0.04) inset, 0 0 0 1px oklch(0% 0 0 / 0.4);
+  --shadow-panel: 0 1px 2px oklch(0% 0 0 / 0.4), 0 12px 32px oklch(0% 0 0 / 0.45);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--ink-0);
+  font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11';
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+/*
+  Custom slider track. Native range styled into a thin instrument fader.
+  Two halves around center 0; the track itself stays neutral, the fill is
+  drawn by the parent via gradient so it can encode sign (positive/negative)
+  with a single source of truth.
+*/
+.fader {
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  height: 1.25rem;
+  margin: 0;
+  cursor: ew-resize;
+}
+
+.fader:focus {
+  outline: none;
+}
+
+.fader::-webkit-slider-runnable-track {
+  height: 0.25rem;
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.fader::-moz-range-track {
+  height: 0.25rem;
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.fader::-webkit-slider-thumb {
+  appearance: none;
+  width: 0.875rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  background: var(--ink-0);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-rim);
+  margin-top: -0.5625rem;
+  transition: transform 120ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fader::-moz-range-thumb {
+  width: 0.875rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  background: var(--ink-0);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-rim);
+}
+
+.fader:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.fader:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.fader:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}

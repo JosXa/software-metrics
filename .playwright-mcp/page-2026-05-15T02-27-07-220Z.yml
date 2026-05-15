@@ -1,0 +1,13 @@
+- generic [ref=e14]:
+  - banner [ref=e15]:
+    - generic [ref=e16]:
+      - text: 
+      - button [disabled] [ref=e17]:
+        - generic [ref=e18]: 
+      - generic [ref=e20]:
+        - generic [ref=e21]: 
+        - generic [ref=e23]: Software Quality
+    - generic [ref=e24]:
+      - generic [ref=e25]: Share
+      - generic [ref=e26]: Explore
+  - text:     
