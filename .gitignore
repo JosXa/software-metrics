@@ -3,3 +3,10 @@ dist
 coverage
 .DS_Store
 *.local
+
+# Local capture / screenshot scratch
+.playwright-mcp/
+*.png
+*.jpg
+*.jpeg
+*.gif
