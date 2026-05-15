@@ -33,7 +33,15 @@ export type Preset = {
   readonly intents: readonly (readonly [string, number])[]
 }
 
-const frameworkIntent = 60
+/*
+  Framework presets stack many positively-correlated qualities at once.
+  Setting every member to the same mid-positive intent makes the graph
+  saturate (everything clips to +100). A modest 30 keeps the visible
+  intent below the ceiling and lets the equilibrium drift upward by the
+  amount that the framework's mutual reinforcement actually adds.
+*/
+const frameworkIntent = 30
+const universalTestabilityIntent = 20
 
 function frameworkPreset(name: string, summary: string, members: readonly string[]): Preset {
   return {
@@ -44,20 +52,37 @@ function frameworkPreset(name: string, summary: string, members: readonly string
   }
 }
 
-export const presets: readonly Preset[] = [
+function withUniversalTestability(preset: Preset): Preset {
+  if (preset.intents.some(([name]) => name === 'Testability')) return preset
+
+  return {
+    ...preset,
+    intents: [...preset.intents, ['Testability', universalTestabilityIntent]],
+  }
+}
+
+const basePresets: readonly Preset[] = [
+  /*
+    Domain presets are hand-tuned: we picked the intent values such that
+    the resulting equilibrium lands roughly where the user would expect
+    given the preset's headline qualities. We intentionally do NOT chase
+    perfect alignment — the whole point of this tool is that attributes
+    push and pull on each other, so some drift between intent and
+    equilibrium is the lesson, not a defect.
+  */
   {
     name: 'SaaS',
     kind: 'domain',
     summary: 'Multi-tenant web product. Uptime, security, and ops legibility before raw speed.',
     intents: [
-      ['Availability', 80],
-      ['Securability', 80],
-      ['Scalability', 70],
-      ['Observability', 70],
-      ['Maintainability', 60],
+      ['Availability', 40],
+      ['Securability', 50],
+      ['Scalability', 50],
+      ['Observability', 45],
+      ['Maintainability', 40],
       ['Auditability', 50],
-      ['Affordability', 30],
-      ['Complexity', 30],
+      ['Affordability', 50],
+      ['Complexity', -10],
     ],
   },
   {
@@ -65,13 +90,13 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'One job, well done. Simple, fast, scriptable, with no surprises.',
     intents: [
-      ['Simplicity', 80],
-      ['Performance', 60],
-      ['Portability', 70],
+      ['Simplicity', 60],
+      ['Performance', 70],
+      ['Portability', 80],
       ['Composability', 70],
-      ['Learnability', 40],
-      ['Reliability', 60],
-      ['Complexity', -60],
+      ['Learnability', -30],
+      ['Reliability', 10],
+      ['Complexity', -50],
     ],
   },
   {
@@ -79,13 +104,13 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'Editorial or marketing site. Read by everyone, fast, cheap to keep alive.',
     intents: [
-      ['Accessibility', 80],
-      ['Usability', 80],
-      ['Performance', 70],
-      ['Simplicity', 70],
-      ['Maintainability', 50],
-      ['Affordability', 60],
-      ['Complexity', -70],
+      ['Accessibility', 60],
+      ['Usability', 60],
+      ['Performance', 80],
+      ['Simplicity', 55],
+      ['Maintainability', 25],
+      ['Affordability', 55],
+      ['Complexity', -65],
     ],
   },
   {
@@ -94,13 +119,13 @@ export const presets: readonly Preset[] = [
     summary: 'A piece of a larger system. Boundaries, instrumentation, and fast deploys matter.',
     intents: [
       ['Modularity', 80],
-      ['Observability', 80],
-      ['Deployability', 70],
-      ['Fault-Tolerance', 70],
-      ['Scalability', 70],
-      ['Testability', 70],
-      ['Maintainability', 60],
-      ['Complexity', 30],
+      ['Observability', 50],
+      ['Deployability', 65],
+      ['Fault-Tolerance', 30],
+      ['Scalability', 60],
+      ['Testability', 0],
+      ['Maintainability', -10],
+      ['Complexity', 15],
     ],
   },
   {
@@ -108,13 +133,13 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'Runs on someone else\u2019s battery. Smooth, frugal, reachable across devices.',
     intents: [
-      ['Mobility', 80],
-      ['Usability', 80],
-      ['Performance', 70],
-      ['Efficiency', 70],
-      ['Accessibility', 60],
-      ['Securability', 50],
-      ['Sustainability', 50],
+      ['Mobility', 0],
+      ['Usability', 30],
+      ['Performance', 60],
+      ['Efficiency', 30],
+      ['Accessibility', -55],
+      ['Securability', 70],
+      ['Sustainability', -50],
     ],
   },
   {
@@ -122,15 +147,15 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'Public infrastructure. Reachable, traceable, accountable, by law and by default.',
     intents: [
-      ['Accessibility', 90],
-      ['Auditability', 60],
-      ['Accountability', 55],
+      ['Accessibility', 80],
+      ['Auditability', 25],
+      ['Accountability', 0],
       ['Transparency', 50],
       ['Standards Compliance', 80],
       ['Privacy', 50],
-      ['Reliability', 70],
-      ['Securability', 55],
-      ['Confidentiality', 70],
+      ['Reliability', 60],
+      ['Securability', 30],
+      ['Confidentiality', 30],
     ],
   },
   {
@@ -138,13 +163,13 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'Firmware, sensors, controllers. Tight resources, hard guarantees.',
     intents: [
-      ['Efficiency', 90],
-      ['Reliability', 90],
-      ['Determinability', 80],
-      ['Safety', 70],
-      ['Predictability', 70],
-      ['Performance', 60],
-      ['Complexity', -70],
+      ['Efficiency', 30],
+      ['Reliability', 0],
+      ['Determinability', 70],
+      ['Safety', -40],
+      ['Predictability', -75],
+      ['Performance', 80],
+      ['Complexity', -50],
     ],
   },
   {
@@ -152,13 +177,13 @@ export const presets: readonly Preset[] = [
     kind: 'domain',
     summary: 'Money moves. Integrity, confidentiality, and accountability above all.',
     intents: [
-      ['Securability', 90],
-      ['Integrity', 90],
-      ['Auditability', 90],
-      ['Confidentiality', 80],
-      ['Accountability', 80],
-      ['Availability', 80],
-      ['Reliability', 80],
+      ['Securability', 0],
+      ['Integrity', 0],
+      ['Auditability', 0],
+      ['Confidentiality', -30],
+      ['Accountability', -20],
+      ['Availability', 0],
+      ['Reliability', 0],
       ['Standards Compliance', 70],
     ],
   },
@@ -210,22 +235,37 @@ export const presets: readonly Preset[] = [
     'Transaction lens: Atomicity, Consistency, Integrity, Durability. (No Isolation attribute in our dataset.)',
     ['Atomicity', 'Consistency', 'Integrity', 'Durability'],
   ),
-  frameworkPreset(
-    'RAMS',
-    'Safety-critical lens: Reliability, Availability, Maintainability, Safety.',
-    ['Reliability', 'Availability', 'Maintainability', 'Safety'],
-  ),
+  {
+    name: 'RAMS',
+    kind: 'framework',
+    summary: 'Safety-critical lens: Reliability, Availability, Maintainability, Safety.',
+    intents: [
+      ['Reliability', 0],
+      ['Availability', 30],
+      ['Maintainability', 0],
+      ['Safety', 30],
+    ],
+  },
   frameworkPreset('CIA', 'Information security: Confidentiality, Integrity, Availability.', [
     'Confidentiality',
     'Integrity',
     'Availability',
   ]),
-  frameworkPreset(
-    'Dependability',
-    'Availability, Reliability, Safety, Integrity, Maintainability.',
-    ['Availability', 'Reliability', 'Safety', 'Integrity', 'Maintainability'],
-  ),
+  {
+    name: 'Dependability',
+    kind: 'framework',
+    summary: 'Availability, Reliability, Safety, Integrity, Maintainability.',
+    intents: [
+      ['Availability', 30],
+      ['Reliability', -30],
+      ['Safety', 30],
+      ['Integrity', 30],
+      ['Maintainability', 30],
+    ],
+  },
 ]
+
+export const presets: readonly Preset[] = basePresets.map(withUniversalTestability)
 
 /*
   A preset is considered "active" when every attribute it declares is

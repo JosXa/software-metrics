@@ -79,7 +79,7 @@ export type QualityAttribute = {
   Most attributes are "good" by definition (Maintainability, Reliability).
   Two are "bad" (Complexity, Vulnerability). A handful are "neutral" because
   they only become good or bad in context (Mobility, Composability,
-  Distributability, Customizability, etc).
+  Distributability, Customizability, Autonomy, etc).
 */
 const polarityOverrides: Readonly<Record<string, AttributePolarity>> = {
   Complexity: 'bad',
@@ -94,6 +94,7 @@ const polarityOverrides: Readonly<Record<string, AttributePolarity>> = {
   Functionality: 'neutral',
   Ubiquity: 'neutral',
   Atomicity: 'neutral',
+  Autonomy: 'neutral',
 }
 
 function polarityFor(name: string): AttributePolarity {

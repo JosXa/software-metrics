@@ -3,11 +3,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { attributeByName } from './data.ts'
 import { type Preset, presetMatches, presets } from './presets.ts'
 import { Tile } from './tile.tsx'
-import {
-  calibrateIntentsForEquilibriumTargets,
-  computeDerivedEffects,
-  solveEquilibrium,
-} from './tradeoff.ts'
+import { computeDerivedEffects, solveEquilibrium } from './tradeoff.ts'
 
 type RailProps = {
   readonly selected: readonly string[]
@@ -42,13 +38,9 @@ export function Rail({
     explains *what is currently pulling on this attribute*, not what the
     user wished was pulling.
   */
-  const calibratedIntents = useMemo(
-    () => calibrateIntentsForEquilibriumTargets(intents, selectedNames),
-    [intents, selectedNames],
-  )
   const equilibrium = useMemo(
-    () => solveEquilibrium(calibratedIntents, selectedNames),
-    [calibratedIntents, selectedNames],
+    () => solveEquilibrium(intents, selectedNames),
+    [intents, selectedNames],
   )
   const allDerived = useMemo(() => computeDerivedEffects(equilibrium), [equilibrium])
   const derivedByTarget = useMemo(() => {

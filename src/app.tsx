@@ -165,6 +165,12 @@ export function App() {
     })
   }, [])
 
+  /*
+    Sliders are pure intent: the value the user requested. The equilibrium
+    is a derived display value computed by Rail from intents through the
+    edge graph. Updating one intent never rewrites another intent, so no
+    other slider thumb moves on a single user action.
+  */
   const setDriverIntent = useCallback((name: string, value: number) => {
     setIntents((current) => {
       const next = new Map(current)
@@ -191,9 +197,10 @@ export function App() {
 
   /*
     Applying a preset is a wholesale replacement, not a merge: the user is
-    saying "show me how this kind of software thinks", and the equilibrium
-    only makes sense for the preset's chosen set. We snap to known
-    attributes only, in case a preset references something later renamed.
+    saying "show me how this kind of software thinks". The preset's listed
+    intent values are taken as-is; the equilibrium then settles wherever
+    the curated graph leads. We snap to known attributes only, in case a
+    preset references something later renamed.
   */
   const applyPreset = useCallback((preset: Preset) => {
     const validIntents = preset.intents.filter(([name]) => attributeByName.has(name))

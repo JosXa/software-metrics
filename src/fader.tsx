@@ -7,12 +7,22 @@ export type SignTone = 'neutral' | 'positive' | 'negative'
 
 type FaderProps = {
   /*
-    `value` is the actual delivered equilibrium. `intent` is the user's
-    requested handle position. When they diverge, the actual value renders
-    as a small tick so the draggable control stays under the user's hand.
+    Two distinct quantities on the same track:
+      - `intent` is the thumb position. It is exactly what the user last
+        requested. Only the slider being dragged ever moves its own
+        thumb. This is what `aria-valuenow` exposes.
+      - `value` is the equilibrium the graph settled on for this
+        attribute given everyone's intents. It rides the SAME track as a
+        ghost tick so the user can see "you asked for X, the network
+        pulled it to Y". Other tiles' equilibria DO move when one
+        slider is dragged — that coupling is the whole pedagogical
+        point.
+    When `value` is omitted the fader is single-track (settings forms,
+    detached previews); when present the ghost tick appears whenever
+    intent and equilibrium have diverged enough to be legible.
   */
-  readonly value: number
-  readonly intent?: number
+  readonly intent: number
+  readonly value?: number
   readonly onChange?: (value: number) => void
   readonly label: string
   readonly polarity: AttributePolarity
@@ -52,11 +62,17 @@ function snapToStep(value: number): number {
   center toward the current value. No numeric value is rendered: this is
   an instrument, the position IS the reading.
 */
-const intentGhostMinGap = 5
+
+/*
+  Minimum visual gap between intent and equilibrium ticks before we
+  bother drawing the ghost. Below this they're indistinguishable on a
+  ~200px track, so showing the tick would just look like noise.
+*/
+const equilibriumGhostMinGap = 3
 
 export function Fader({
-  value,
   intent,
+  value,
   onChange,
   label,
   polarity,
@@ -67,15 +83,12 @@ export function Fader({
 }: FaderProps) {
   const reactId = useId()
   const inputId = `${reactId}-fader`
-  const snappedActual = snapToStep(value)
-  const snappedIntent = snapToStep(intent ?? value)
-  const showActualTick = Math.abs(snappedActual - snappedIntent) >= intentGhostMinGap
-  const tone = polarityAdjustedSign(polarity, snappedActual)
+  const snappedIntent = snapToStep(intent)
+  const tone = polarityAdjustedSign(polarity, snappedIntent)
   const trackColor = trackTokenByTone[tone]
-  const percent = (snappedActual + 100) / 2 // 0..100
+  const percent = (snappedIntent + 100) / 2 // 0..100
   const start = Math.min(50, percent)
   const end = Math.max(50, percent)
-  const actualPercent = (snappedActual + 100) / 2
 
   const trackStyle: CSSProperties = {
     background: `linear-gradient(
@@ -92,6 +105,19 @@ export function Fader({
   const isInteractive = !(readonly || disabled)
   const accessibleValue = formatSignedValue(snappedIntent)
   const heightClass = sizes === 'sm' ? 'h-4' : 'h-5'
+
+  /*
+    Equilibrium ghost: the value the graph settled on, rendered as a
+    secondary tick on the same track. Only drawn when it diverges from
+    the user's intent, so calm tiles stay quiet. The tick lives inside
+    the same 7px inset the thumb travels in, so its position aligns with
+    where the thumb would sit at that value.
+  */
+  const equilibriumValue = value === undefined ? undefined : snapToStep(value)
+  const showEquilibriumTick =
+    equilibriumValue !== undefined &&
+    Math.abs(equilibriumValue - snappedIntent) >= equilibriumGhostMinGap
+  const equilibriumPercent = equilibriumValue === undefined ? 50 : (equilibriumValue + 100) / 2
 
   /*
     The native range thumb's center travels from the input's left edge to
@@ -121,14 +147,14 @@ export function Fader({
           aria-hidden
           className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-2.5 w-px bg-[var(--line-strong)]"
         />
-        {showActualTick && (
+        {showEquilibriumTick && (
           <span
             aria-hidden
-            className="-translate-x-1/2 -translate-y-1/2 pointer-events-none absolute top-1/2 h-3 w-px bg-[var(--ink-3)]"
-            style={{
-              left: `calc(7px + (100% - 14px) * ${(actualPercent / 100).toString()})`,
-            }}
-            title="actual delivered position"
+            className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-3 w-[2px] rounded-sm bg-[var(--ink-1)]/60 ring-1 ring-[var(--surface-0)]"
+            data-testid="fader-equilibrium-tick"
+            data-value={equilibriumValue?.toString()}
+            style={{ left: `calc(7px + (100% - 14px) * ${(equilibriumPercent / 100).toString()})` }}
+            title={`Equilibrium: ${formatSignedValue(equilibriumValue ?? 0)}`}
           />
         )}
         <input

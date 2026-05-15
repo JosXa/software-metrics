@@ -94,6 +94,15 @@ export function Tile({
 
       <Fader
         hideLabel
+        /*
+          Two readouts on one track:
+            - thumb position is `intent` (the user's last request for
+              THIS slider; only this slider's thumb moves when dragged)
+            - the ghost tick is `value` (the equilibrium the graph
+              settled on; this DOES move on other tiles when one slider
+              is dragged, because the curated relationships pull
+              attributes around).
+        */
         intent={intent}
         label={attribute.name}
         onChange={onChange}
@@ -162,12 +171,12 @@ function TileControls({
         </span>
       ) : (
         <span className="flex items-center gap-0.5 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100">
-          <TileButton label="Reset to neutral" onClick={onReset}>
-            reset
-          </TileButton>
-          <TileButton label="Remove from rail" onClick={onRemove}>
-            remove
-          </TileButton>
+          <TileIconButton label="Reset to neutral" onClick={onReset}>
+            <ResetIcon />
+          </TileIconButton>
+          <TileIconButton label="Remove from rail" onClick={onRemove}>
+            <RemoveIcon />
+          </TileIconButton>
         </span>
       )}
     </div>
@@ -193,6 +202,72 @@ function TileButton({ children, label, onClick }: TileButtonProps) {
     >
       {children}
     </button>
+  )
+}
+
+type TileIconButtonProps = {
+  readonly children: React.ReactNode
+  readonly label: string
+  readonly onClick: () => void
+}
+
+/*
+  Icon-only variant of TileButton. Same affordance, no text. The label is
+  surfaced through aria-label and title so screen readers and hover
+  tooltips still explain what the action does.
+*/
+function TileIconButton({ children, label, onClick }: TileIconButtonProps) {
+  return (
+    <button
+      aria-label={label}
+      className="inline-flex h-5 w-5 items-center justify-center rounded text-[var(--ink-3)] transition-colors duration-150 hover:bg-[var(--surface-2)] hover:text-[var(--ink-0)] focus-visible:bg-[var(--accent-soft)] focus-visible:text-[var(--accent-ink)] focus-visible:outline-none"
+      onClick={(event) => {
+        event.stopPropagation()
+        onClick()
+      }}
+      title={label}
+      type="button"
+    >
+      {children}
+    </button>
+  )
+}
+
+function ResetIcon() {
+  // Counter-clockwise circular arrow: a familiar "undo to default" shape.
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-3 w-3"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.6"
+      viewBox="0 0 16 16"
+    >
+      <path d="M3.2 4.4V8h3.6" />
+      <path d="M3.6 8a4.5 4.5 0 1 0 1.3-3.2L3.2 6.4" />
+    </svg>
+  )
+}
+
+function RemoveIcon() {
+  // X glyph: dismiss / close. Distinct from the lock icon shape.
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-3 w-3"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.7"
+      viewBox="0 0 16 16"
+    >
+      <path d="M4 4l8 8" />
+      <path d="M12 4l-8 8" />
+    </svg>
   )
 }
 

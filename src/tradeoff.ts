@@ -194,25 +194,6 @@ export function solveEquilibrium(
   return current
 }
 
-/*
-  Presets describe the equilibrium the rail should initially show, not the
-  hidden raw force needed to fight the rest of the graph. This one-step
-  inverse uses the desired target values as the incoming-force context and
-  computes the raw intents that should settle close to those targets.
-*/
-export function calibrateIntentsForEquilibriumTargets(
-  targets: SourceState,
-  selected: ReadonlySet<string>,
-): ReadonlyMap<string, number> {
-  const calibrated = new Map<string, number>()
-  for (const name of selected) {
-    const target = clampValue(targets.get(name) ?? 0)
-    const contribution = incomingContributionAt(name, selected, targets)
-    calibrated.set(name, clampValue(target - contribution))
-  }
-  return calibrated
-}
-
 export function formatSignedValue(value: number): string {
   if (value === 0) return '0'
   const rounded = Math.round(value)

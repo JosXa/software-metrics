@@ -97,20 +97,30 @@ const broadComplexityReliefSources = [
   'Understandability',
 ] as const
 
+/*
+  Complexity is the dominant cost in real software, and the original
+  influence weights understated that. Pressure sources keep their broad
+  reach but bump from 1 to 2; relief sources triple from 1 to 3 because
+  the very few attributes that genuinely tame complexity (Simplicity,
+  Modularity, Understandability, etc.) carry disproportionate explanatory
+  power. Without that asymmetry the rail collapsed every selection toward
+  "more complexity, mildly less" and Complexity could not be steered
+  even with a heavy commitment to the relief levers.
+*/
 const broadComplexityInfluenceEdges: readonly Edge[] = [
   ...broadComplexityPressureSources.map((source) => ({
     source,
     target: 'Complexity',
     direction: 'positive' as const,
-    influence: 1 as const,
+    influence: 2 as const,
     confidence: 'inferred' as const,
-    note: 'Most quality goals add weak constraint pressure and coordination cost.',
+    note: 'Most quality goals add constraint pressure and coordination cost.',
   })),
   ...broadComplexityReliefSources.map((source) => ({
     source,
     target: 'Complexity',
     direction: 'negative' as const,
-    influence: 1 as const,
+    influence: 3 as const,
     confidence: 'inferred' as const,
     note: 'This quality tends to make existing complexity easier to contain.',
   })),
@@ -143,7 +153,7 @@ export const edges: readonly Edge[] = [
     source: 'Accessibility',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'inherited',
     note: 'Adds surface area to design and test.',
   },
@@ -381,7 +391,7 @@ export const edges: readonly Edge[] = [
     source: 'Scalability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -690,7 +700,7 @@ export const edges: readonly Edge[] = [
     source: 'Securability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -820,7 +830,7 @@ export const edges: readonly Edge[] = [
     source: 'Availability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -883,7 +893,7 @@ export const edges: readonly Edge[] = [
     source: 'Fault-Tolerance',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -1104,7 +1114,7 @@ export const edges: readonly Edge[] = [
     source: 'Localizability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
 
@@ -1134,7 +1144,7 @@ export const edges: readonly Edge[] = [
     source: 'Customizability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -1171,7 +1181,7 @@ export const edges: readonly Edge[] = [
     source: 'Configurability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -1192,7 +1202,7 @@ export const edges: readonly Edge[] = [
     source: 'Tailorability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -1264,7 +1274,7 @@ export const edges: readonly Edge[] = [
     source: 'Extensibility',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -1348,7 +1358,7 @@ export const edges: readonly Edge[] = [
     source: 'Composability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
   {
@@ -1498,7 +1508,7 @@ export const edges: readonly Edge[] = [
     source: 'Distributability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -2051,7 +2061,7 @@ export const edges: readonly Edge[] = [
     source: 'Functionality',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -2086,7 +2096,7 @@ export const edges: readonly Edge[] = [
     source: 'Capabilities',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -2338,7 +2348,7 @@ export const edges: readonly Edge[] = [
     source: 'Mobility',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -2649,7 +2659,7 @@ export const edges: readonly Edge[] = [
     source: 'Reusability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
     note: 'Generalized components carry abstraction cost.',
   },
@@ -2722,7 +2732,7 @@ export const edges: readonly Edge[] = [
     source: 'Ubiquity',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
 
@@ -2852,7 +2862,7 @@ export const edges: readonly Edge[] = [
     source: 'Degradability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -2938,14 +2948,14 @@ export const edges: readonly Edge[] = [
     source: 'Fidelity',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
     source: 'Flexibility',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -3010,9 +3020,9 @@ export const edges: readonly Edge[] = [
     source: 'Modifiability',
     target: 'Complexity',
     direction: 'negative',
-    influence: 2,
+    influence: 5,
     confidence: 'curated',
-    note: 'Change-friendly designs usually reduce incidental complexity.',
+    note: 'Change-friendly designs reduce incidental complexity more than any other lever.',
   },
   {
     source: 'Orthogonality',
@@ -3039,7 +3049,7 @@ export const edges: readonly Edge[] = [
     source: 'Portability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
   {
@@ -3082,7 +3092,7 @@ export const edges: readonly Edge[] = [
     source: 'Resilience',
     target: 'Complexity',
     direction: 'positive',
-    influence: 3,
+    influence: 5,
     confidence: 'curated',
   },
   {
@@ -3096,7 +3106,7 @@ export const edges: readonly Edge[] = [
     source: 'Self-Sustainability',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
   {
@@ -3167,7 +3177,7 @@ export const edges: readonly Edge[] = [
     source: 'Transparency',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
     note: 'Explanations and visible state add product and engineering surface.',
   },
@@ -3221,7 +3231,7 @@ export const edges: readonly Edge[] = [
     source: 'Confidentiality',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
   {
@@ -3449,7 +3459,7 @@ export const edges: readonly Edge[] = [
     source: 'Seamlessness',
     target: 'Complexity',
     direction: 'positive',
-    influence: 2,
+    influence: 3,
     confidence: 'curated',
   },
   {
@@ -3583,5 +3593,515 @@ export const edges: readonly Edge[] = [
     influence: 3,
     confidence: 'curated',
     note: 'Surviving an incident with state intact is what Integrity measures.',
+  },
+
+  /*
+    Back-pressure mirrors for the three "constraint" attributes that the
+    rail pins by default: Complexity, Affordability, Reliability.
+
+    Without these mirrors, the graph treats them as one-way sinks: drivers
+    push them around, but pinning them never pushes drivers back. That
+    silently breaks the entire point of having them as standing constraints.
+
+    The mirror keeps the original sign (positive stays positive, negative
+    stays negative). Positive edges mean the two attributes move together
+    in either direction; negative edges mean they trade off in either
+    direction. Influence is copied from the forward edge so the symmetry
+    is honest. The hub-budget normalization in `tradeoff.ts` keeps any
+    single pin from dominating once it has many mirrored edges.
+  */
+
+  // Complexity back-pressure
+  {
+    source: 'Complexity',
+    target: 'Accessibility',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'Pinning complexity low forces accessibility scope to shrink with it.',
+  },
+  {
+    source: 'Complexity',
+    target: 'Availability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'High-availability designs need redundancy and failover that add complexity.',
+  },
+  {
+    source: 'Complexity',
+    target: 'Capabilities',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'More capabilities only fit inside a system willing to absorb the complexity.',
+  },
+  {
+    source: 'Complexity',
+    target: 'Composability',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Confidentiality',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Configurability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Customizability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Degradability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Distributability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Extensibility',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Fault-Tolerance',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Fidelity',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Flexibility',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Functionality',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'You cannot ship more functionality than the complexity budget allows.',
+  },
+  {
+    source: 'Complexity',
+    target: 'Localizability',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Mobility',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Modifiability',
+    direction: 'negative',
+    influence: 2,
+    confidence: 'curated',
+    note: 'High complexity makes the codebase actively harder to modify.',
+  },
+  {
+    source: 'Complexity',
+    target: 'Portability',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Resilience',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Reusability',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Scalability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Seamlessness',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Self-Sustainability',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Tailorability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Transparency',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Complexity',
+    target: 'Ubiquity',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  // Note: the X→Complexity reverses for X in {Debuggability, Determinability,
+  // Learnability, Maintainability, Predictability, Simplicity, Testability,
+  // Understandability, Vulnerability} were already present in the file (they
+  // were authored as forward edges into Complexity), so we don't need to
+  // mirror them here.
+
+  // Affordability back-pressure
+  {
+    source: 'Affordability',
+    target: 'Accountability',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Availability',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+    note: 'Strict cost ceilings rule out the redundancy that high availability needs.',
+  },
+  {
+    source: 'Affordability',
+    target: 'Credibility',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Debuggability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Deployability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Durability',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Effectiveness',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Efficiency',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Installability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Manageability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Operability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Producibility',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Provability',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+    note: 'Formal proofs are expensive; tight budgets push them out.',
+  },
+  {
+    source: 'Affordability',
+    target: 'Reusability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Safety',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+    note: 'Safety certification work costs real money.',
+  },
+  {
+    source: 'Affordability',
+    target: 'Scalability',
+    direction: 'negative',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Self-Sustainability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Affordability',
+    target: 'Serviceability/Supportability',
+    direction: 'positive',
+    influence: 1,
+    confidence: 'curated',
+  },
+  {
+    source: 'Performance',
+    target: 'Affordability',
+    direction: 'negative',
+    influence: 2,
+    confidence: 'curated',
+    note: 'Squeezing extra performance out usually means paying for more or faster hardware.',
+  },
+  {
+    source: 'Securability',
+    target: 'Affordability',
+    direction: 'negative',
+    influence: 2,
+    confidence: 'curated',
+    note: 'Hardening, audits, and key management all carry recurring cost.',
+  },
+
+  // Reliability back-pressure
+  {
+    source: 'Availability',
+    target: 'Reliability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Credibility',
+    target: 'Reliability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Atomicity',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Correctness',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Debuggability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Durability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Fault-Tolerance',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'You cannot get reliability without tolerating the faults that arise.',
+  },
+  {
+    source: 'Reliability',
+    target: 'Integrity',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Maintainability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'Sustained reliability requires the system to stay maintainable.',
+  },
+  {
+    source: 'Reliability',
+    target: 'Observability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'You cannot keep a system reliable without seeing what it is doing.',
+  },
+  {
+    source: 'Reliability',
+    target: 'Operability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Predictability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Producibility',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Provability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Repeatability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Reproducibility',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Robustness',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Simplicity',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+  },
+  {
+    source: 'Reliability',
+    target: 'Testability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
+    note: 'Reliable systems are systems you can keep testing as they evolve.',
+  },
+  {
+    source: 'Reliability',
+    target: 'Timeliness',
+    direction: 'positive',
+    influence: 2,
+    confidence: 'curated',
+  },
+  {
+    source: 'Safety',
+    target: 'Reliability',
+    direction: 'positive',
+    influence: 3,
+    confidence: 'curated',
   },
 ]
