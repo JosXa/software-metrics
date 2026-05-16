@@ -162,10 +162,6 @@ describe('App shell', () => {
     */
     render(<App />)
 
-    const railRegion = screen.getByRole('region', { name: railRegionName })
-    const bankingButton = within(railRegion).getByRole('button', { name: bankingPresetName })
-    fireEvent.click(bankingButton)
-
     function snapshotEquilibria(): Map<string, string> {
       const result = new Map<string, string>()
       for (const tile of screen.getAllByRole('article')) {
@@ -173,7 +169,7 @@ describe('App shell', () => {
         const tick = tile.querySelector<HTMLElement>('[data-testid="fader-equilibrium-tick"]')
         // Tiles with no divergence omit the tick — record the placeholder
         // so 'no tick -> tick appears' also counts as movement.
-        result.set(label, tick?.dataset['value'] ?? 'none')
+        result.set(label, tick?.getAttribute('data-value') ?? 'none')
       }
       return result
     }

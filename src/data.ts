@@ -42,9 +42,12 @@ const definitionOverrides: Readonly<Record<string, string>> = {
   Complexity:
     'How much intricacy the design carries: hard to hold in one head, hard to predict, hard to change.',
   Composability: 'How freely the software can be assembled from independent parts.',
+  Consistency:
+    'How reliably the software preserves declared invariants across operations, replicas, and failure boundaries.',
   Customizability: 'How far end users can shape the software to their own preferences.',
   Determinability: 'How tightly the software ties its outputs to its inputs.',
-  Durability: 'How long the software keeps working under stress.',
+  Durability:
+    'How reliably committed state survives crashes, restarts, storage failures, and recovery.',
   'Failure Transparency':
     'How honestly the software exposes its failures and their consequences instead of hiding them.',
   Functionality: 'The set of things the software actually does.',
@@ -52,11 +55,15 @@ const definitionOverrides: Readonly<Record<string, string>> = {
   Mobility: 'How well the software follows users across devices and environments.',
   Orthogonality: 'How independent the software\u2019s parts are from each other.',
   Producibility: 'How reliably the software can be built and rebuilt at scale.',
+  Privacy:
+    'How well the software limits collection, use, retention, disclosure, and linkage of personal data.',
   Repeatability: 'Same input, same conditions, same output.',
   Reproducibility: 'Same result across environments, machines, and time.',
   'Serviceability/Supportability':
     'How easy the software is to support, service, and keep healthy in production.',
   Tailorability: 'How well the software can be adjusted to fit a specific user or workflow.',
+  Sustainability:
+    'How well the software can keep delivering value without exhausting budget, people, infrastructure, or environmental resources.',
   Ubiquity: 'How widely the software is available across platforms and devices.',
   Vulnerability:
     'How exposed the software is to unauthorized access or exploitation. Higher is worse.',
@@ -84,11 +91,9 @@ export type AttributeKind = 'foundation' | 'lever' | 'outcome'
   attribute in real software?", on a 0..3 scale. The math turns this into
   inherent edges so foundation metrics absorb the cost transparently:
 
-  - 0: free / descriptive (Capabilities, Functionality) or you wouldn't
-       want to raise it (Vulnerability) or the attribute IS a cost ledger
-       (foundations).
-  - 1: cheap / mostly design discipline (Simplicity, Customizability,
-       Predictability).
+  - 0: you wouldn't want to raise it (Vulnerability), or the attribute IS
+       a cost ledger (foundations).
+  - 1: cheap / mostly design discipline (Simplicity).
   - 2: real engineering effort, often ongoing (Performance, Maintainability,
        Testability, Auditability).
   - 3: major ongoing investment in infra, redundancy, certification, or
@@ -171,6 +176,7 @@ const outcomeNames = new Set([
   'Testability',
   'Understandability',
   'Upgradability',
+  'Ubiquity',
   'Usability',
 ])
 
@@ -191,19 +197,19 @@ const investmentCostOverrides: Readonly<Record<string, InvestmentCost>> = {
   Affordability: 0,
   Complexity: 0,
   Reliability: 0,
-  // Pure descriptions of "what the software does", not investments.
-  Capabilities: 0,
-  Functionality: 0,
+  // Product scope is not free: more surface means design, build, support, and test burden.
+  Capabilities: 2,
+  Functionality: 2,
   // Vulnerability is bad — raising it costs nothing, you just stop trying.
   Vulnerability: 0,
   // Cheap design discipline.
   Simplicity: 1,
-  Predictability: 1,
-  Customizability: 1,
-  Configurability: 1,
-  Tailorability: 1,
-  Atomicity: 1,
-  Composability: 1,
+  Predictability: 2,
+  Customizability: 2,
+  Configurability: 2,
+  Tailorability: 2,
+  Atomicity: 2,
+  Composability: 2,
   Modularity: 2,
   Orthogonality: 2,
   // Real ongoing engineering effort.
@@ -225,6 +231,7 @@ const investmentCostOverrides: Readonly<Record<string, InvestmentCost>> = {
   Portability: 2,
   Interoperability: 2,
   Compatibility: 2,
+  Distributability: 3,
   Reusability: 2,
   Extensibility: 2,
   Evolvability: 2,
@@ -249,8 +256,8 @@ const investmentCostOverrides: Readonly<Record<string, InvestmentCost>> = {
   Provability: 3,
   'Standards Compliance': 3,
   Demonstrability: 2,
-  Accountability: 2,
-  Credibility: 2,
+  Accountability: 3,
+  Credibility: 1,
   Dependability: 2,
 }
 

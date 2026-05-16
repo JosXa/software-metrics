@@ -147,6 +147,9 @@ function LibraryRow({ attribute, isSelected, isLocked, onToggle }: LibraryRowPro
             </span>
             {isLocked ? <LockedBadge /> : <PolarityBadge polarity={attribute.polarity} />}
           </span>
+          <span className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--ink-3)]">
+            <KindCostBadge attribute={attribute} />
+          </span>
           <span className="text-[12px] leading-snug text-[var(--ink-2)]">
             {attribute.definition}
           </span>
@@ -160,6 +163,20 @@ function LockedBadge() {
   return (
     <span className="shrink-0 rounded-sm border border-[var(--line)] bg-[var(--surface-0)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--accent-ink)]">
       pinned
+    </span>
+  )
+}
+
+function KindCostBadge({ attribute }: { readonly attribute: QualityAttribute }) {
+  const kindLabel =
+    attribute.kind === 'foundation'
+      ? 'foundation'
+      : attribute.kind === 'outcome'
+        ? 'outcome'
+        : 'lever'
+  return (
+    <span title="Model role and investment cost from 0 (free ledger) to 3 (major investment)">
+      {kindLabel} · cost {attribute.investmentCost.toString()}
     </span>
   )
 }

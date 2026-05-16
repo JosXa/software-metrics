@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react'
 import { useEffect, useId, useState } from 'react'
 
 import type { AttributePolarity, QualityAttribute } from './data.ts'
+import type { EdgeConfidence } from './edges.ts'
 import { Fader, polarityAdjustedSign, type SignTone } from './fader.tsx'
 import {
   type DerivedEffect,
@@ -688,6 +689,7 @@ function RelationsDialog({
             heading="Driven by"
             items={incoming.map((edge) => ({
               name: edge.source,
+              confidence: edge.confidence,
               direction: edge.direction,
               note: edge.note,
               isInRail: selectedNames.has(edge.source),
@@ -702,6 +704,7 @@ function RelationsDialog({
               heading="Drives"
               items={outgoing.map((edge) => ({
                 name: edge.target,
+                confidence: edge.confidence,
                 direction: edge.direction,
                 note: edge.note,
                 isInRail: selectedNames.has(edge.target),
@@ -723,6 +726,7 @@ function RelationsDialog({
 
 type RelationItem = {
   readonly name: string
+  readonly confidence: EdgeConfidence
   readonly direction: 'positive' | 'negative'
   readonly note: string | undefined
   readonly isInRail: boolean
@@ -806,6 +810,7 @@ function RelationRow({
           title="active driver"
         />
       )}
+      <EdgeConfidenceBadge confidence={item.confidence} />
       {item.note !== undefined && (
         <span className="truncate text-[10px] text-[var(--ink-3)]" title={item.note}>
           {': '}
@@ -813,5 +818,32 @@ function RelationRow({
         </span>
       )}
     </li>
+  )
+}
+
+function EdgeConfidenceBadge({ confidence }: { readonly confidence: EdgeConfidence }) {
+  const label =
+    confidence === 'inherent'
+      ? 'investment cost'
+      : confidence === 'inferred'
+        ? 'inferred'
+        : confidence === 'inherited'
+          ? 'source'
+          : 'curated'
+  const title =
+    confidence === 'inherent'
+      ? 'Generated from attribute kind and investment cost.'
+      : confidence === 'inferred'
+        ? 'Generated from broad graph heuristics.'
+        : confidence === 'inherited'
+          ? 'Inherited from the original source data.'
+          : 'Hand-curated relationship.'
+  return (
+    <span
+      className="shrink-0 rounded-sm border border-[var(--line-soft)] px-1 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--ink-3)]"
+      title={title}
+    >
+      {label}
+    </span>
   )
 }

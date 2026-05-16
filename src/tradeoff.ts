@@ -45,6 +45,12 @@ const inherentInfluenceTable: Readonly<Record<number, EdgeInfluenceForCost>> = {
 
 type EdgeInfluenceForCost = 1 | 2 | 3 | 5
 
+function oneStepLowerInfluence(influence: EdgeInfluenceForCost): EdgeInfluenceForCost {
+  if (influence === 5) return 3
+  if (influence === 3) return 2
+  return 1
+}
+
 function inherentEdgesFor(name: string, kind: string, cost: number): readonly Edge[] {
   if (cost <= 0) return []
   const baseInfluence = inherentInfluenceTable[cost] ?? 1
@@ -52,13 +58,9 @@ function inherentEdgesFor(name: string, kind: string, cost: number): readonly Ed
   // higher than the affordability hit. Levers cost more wallet, less
   // brain.
   const affordabilityInfluence: EdgeInfluenceForCost =
-    kind === 'outcome'
-      ? (Math.max(1, Math.min(5, baseInfluence - 1)) as EdgeInfluenceForCost)
-      : baseInfluence
+    kind === 'outcome' ? oneStepLowerInfluence(baseInfluence) : baseInfluence
   const complexityInfluence: EdgeInfluenceForCost =
-    kind === 'outcome'
-      ? baseInfluence
-      : (Math.max(1, Math.min(5, baseInfluence - 1)) as EdgeInfluenceForCost)
+    kind === 'outcome' ? baseInfluence : oneStepLowerInfluence(baseInfluence)
   return [
     {
       source: name,
