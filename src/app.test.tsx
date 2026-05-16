@@ -192,14 +192,21 @@ describe('App shell', () => {
   })
 
   it('toggles the theme and persists to the document', () => {
+    /*
+      Dark is the default now (see use-theme.ts), so the first toggle
+      renders as "switch to light theme" and the document already carries
+      data-theme=dark on first paint.
+    */
     render(<App />)
 
-    const toggle = screen.getByRole('button', { name: switchToDarkName })
-    fireEvent.click(toggle)
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
 
-    const reverseToggle = screen.getByRole('button', { name: switchToLightName })
-    fireEvent.click(reverseToggle)
+    const toggleToLight = screen.getByRole('button', { name: switchToLightName })
+    fireEvent.click(toggleToLight)
     expect(document.documentElement.getAttribute('data-theme')).toBe('light')
+
+    const toggleBackToDark = screen.getByRole('button', { name: switchToDarkName })
+    fireEvent.click(toggleBackToDark)
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
   })
 })

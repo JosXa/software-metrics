@@ -1,8 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      // Apply the persisted theme synchronously to avoid a light-mode flash on
+      // first paint. The <html data-theme="dark"> default above covers the
+      // first-visit case and SSR; this only steps in when the user has
+      // explicitly toggled.
+      try {
+        var stored = localStorage.getItem('sqm.theme')
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', stored)
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
+      } catch (_) {}
+    </script>
     <meta
       name="description"
       content="Interactive explorer for software quality tradeoffs. Pick the attributes you care about, set intent, watch the equilibrium settle."

@@ -16,10 +16,16 @@ function safeStorage(): Storage | undefined {
   }
 }
 
-function safePrefersDark(): boolean {
+/*
+  Dark is the default. We only switch to light when the user has either
+  explicitly chosen it (persisted in localStorage) or has set their OS to
+  prefers-color-scheme: light. Anything else — first visit, no stored
+  pref, no system signal, SSR — stays dark.
+*/
+function safePrefersLight(): boolean {
   if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return false
   try {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+    return window.matchMedia('(prefers-color-scheme: light)').matches
   } catch {
     return false
   }
@@ -29,7 +35,7 @@ function readInitialTheme(): Theme {
   const storage = safeStorage()
   const stored = storage?.getItem(storageKey)
   if (stored === 'light' || stored === 'dark') return stored
-  return safePrefersDark() ? 'dark' : 'light'
+  return safePrefersLight() ? 'light' : 'dark'
 }
 
 export function useTheme(): {
