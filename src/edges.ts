@@ -16,7 +16,7 @@
 
 export type EdgeDirection = 'positive' | 'negative'
 
-export type EdgeConfidence = 'curated' | 'inherited' | 'inferred'
+export type EdgeConfidence = 'curated' | 'inherited' | 'inferred' | 'inherent'
 
 export type EdgeInfluence = 1 | 2 | 3 | 5
 

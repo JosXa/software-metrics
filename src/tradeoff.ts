@@ -1,3 +1,4 @@
+import { qualityAttributes } from './data.ts'
 import { type Edge, edges } from './edges.ts'
 
 export type SourceState = ReadonlyMap<string, number>
@@ -20,11 +21,78 @@ export type DerivedEffect = {
   readonly clamped: boolean
 }
 
+/*
+  Inherent investment cost edges. For every attribute with investmentCost
+  greater than 0 we synthesize two edges: source → Affordability (negative,
+  "investing in this costs money/time") and source → Complexity (positive,
+  "investing in this adds moving parts"). Outcome attributes also charge
+  more on Complexity than levers, because outcomes only "go up" via
+  abstraction work that bites Complexity twice.
+
+  This is what fixes the god-mode problem: Testability or Maintainability
+  can no longer climb without paying Affordability and Complexity, the
+  same way you cannot avoid those costs in real software.
+
+  Synthesized edges carry confidence='inherent' so the relations dialog
+  and pressure popovers can label them honestly as "intrinsic cost of
+  raising X" rather than as a curated opinion.
+*/
+const inherentInfluenceTable: Readonly<Record<number, EdgeInfluenceForCost>> = {
+  1: 1,
+  2: 3,
+  3: 5,
+}
+
+type EdgeInfluenceForCost = 1 | 2 | 3 | 5
+
+function inherentEdgesFor(name: string, kind: string, cost: number): readonly Edge[] {
+  if (cost <= 0) return []
+  const baseInfluence = inherentInfluenceTable[cost] ?? 1
+  // Outcomes are bought through layers of indirection; complexity scales
+  // higher than the affordability hit. Levers cost more wallet, less
+  // brain.
+  const affordabilityInfluence: EdgeInfluenceForCost =
+    kind === 'outcome'
+      ? (Math.max(1, Math.min(5, baseInfluence - 1)) as EdgeInfluenceForCost)
+      : baseInfluence
+  const complexityInfluence: EdgeInfluenceForCost =
+    kind === 'outcome'
+      ? baseInfluence
+      : (Math.max(1, Math.min(5, baseInfluence - 1)) as EdgeInfluenceForCost)
+  return [
+    {
+      source: name,
+      target: 'Affordability',
+      direction: 'negative',
+      influence: affordabilityInfluence,
+      confidence: 'inherent',
+      note: 'Investing in this costs engineering time, infrastructure, and ongoing operations.',
+    },
+    {
+      source: name,
+      target: 'Complexity',
+      direction: 'positive',
+      influence: complexityInfluence,
+      confidence: 'inherent',
+      note:
+        kind === 'outcome'
+          ? 'Outcome qualities only go up through layers of abstraction; Complexity is the price.'
+          : 'Investing in this adds moving parts, configuration, and concepts to track.',
+    },
+  ]
+}
+
+const inherentEdges: readonly Edge[] = qualityAttributes.flatMap((attribute) =>
+  inherentEdgesFor(attribute.name, attribute.kind, attribute.investmentCost),
+)
+
+const allEdges: readonly Edge[] = [...edges, ...inherentEdges]
+
 const edgesBySource = new Map<string, Edge[]>()
 const edgesByTarget = new Map<string, Edge[]>()
 const weightedOutDegree = new Map<string, number>()
 const weightedInDegree = new Map<string, number>()
-for (const edge of edges) {
+for (const edge of allEdges) {
   const fromList = edgesBySource.get(edge.source) ?? []
   fromList.push(edge)
   edgesBySource.set(edge.source, fromList)
