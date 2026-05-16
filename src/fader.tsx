@@ -50,7 +50,7 @@ const trackTokenByTone: Record<SignTone, string> = {
   negative: 'var(--negative)',
 }
 
-const faderStep = 5
+const faderStep = 1
 
 function snapToStep(value: number): number {
   return Math.round(value / faderStep) * faderStep
@@ -84,9 +84,17 @@ export function Fader({
   const reactId = useId()
   const inputId = `${reactId}-fader`
   const snappedIntent = snapToStep(intent)
-  const tone = polarityAdjustedSign(polarity, snappedIntent)
+  /*
+    The painted bar represents the SYSTEM's reading — equilibrium when
+    available, otherwise intent (e.g. detached previews where the graph
+    isn't running). The thumb is just the user's input handle. The bar's
+    color also follows equilibrium so a "you wanted negative but the
+    graph pulled it positive" moment paints in the equilibrium's tone.
+  */
+  const snappedEquilibrium = value === undefined ? snappedIntent : snapToStep(value)
+  const tone = polarityAdjustedSign(polarity, snappedEquilibrium)
   const trackColor = trackTokenByTone[tone]
-  const percent = (snappedIntent + 100) / 2 // 0..100
+  const percent = (snappedEquilibrium + 100) / 2 // 0..100
   const start = Math.min(50, percent)
   const end = Math.max(50, percent)
 
