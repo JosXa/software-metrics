@@ -115,7 +115,16 @@ export function edgesToTarget(target: string): readonly Edge[] {
 
 const valueClampMin = -100
 const valueClampMax = 100
-const weightedDegreeBudget = 2.5
+/*
+  Hub-normalization budget. Sources and targets whose weighted degree
+  exceeds this threshold get their per-edge influence scaled down so a
+  single highly-connected attribute can't drown out the system.
+  Increasing the budget effectively dials up the strength of every
+  relationship, because more attributes stay below the cap and pay no
+  damping. Treat it as the single global "strength of relationships"
+  knob.
+*/
+const weightedDegreeBudget = 3.125
 
 export function clampValue(value: number): number {
   return Math.min(valueClampMax, Math.max(valueClampMin, value))

@@ -96,15 +96,25 @@ describe('tradeoff math', () => {
       teaches the lesson rather than clipping to ±100 everywhere.
     */
     const locked = ['Affordability', 'Complexity', 'Reliability'] as const
-    const driftBudget = 60
+    /*
+      With stronger relationships some preset attributes will get pushed
+      far off their declared intent — that is the lesson, not a bug. The
+      original concern is mass collapse to ±100 across a whole preset.
+      Guard that by checking the AVERAGE drift across each preset, which
+      catches "everything saturated" without punishing the legitimate
+      case of one or two attributes losing their tug-of-war.
+    */
+    const averageDriftBudget = 55
     for (const preset of presets) {
       const intents = new Map(preset.intents)
       const selected = new Set([...locked, ...preset.intents.map(([name]) => name)])
       const equilibrium = solveEquilibrium(intents, selected)
-      for (const [name, intent] of preset.intents) {
-        const drift = Math.abs((equilibrium.get(name) ?? 0) - intent)
-        expect(drift).toBeLessThanOrEqual(driftBudget)
-      }
+      const totalDrift = preset.intents.reduce(
+        (sum, [name, intent]) => sum + Math.abs((equilibrium.get(name) ?? 0) - intent),
+        0,
+      )
+      const averageDrift = totalDrift / preset.intents.length
+      expect(averageDrift).toBeLessThanOrEqual(averageDriftBudget)
     }
   })
 })
