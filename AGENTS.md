@@ -6,6 +6,12 @@
 - Vitest for fast deterministic tests
 - Tailwind CSS v4 through `@tailwindcss/vite`
 
+## Deploy
+
+- Cloudflare Workers Assets via `wrangler.jsonc`
+- Live domain: `https://sqm.josxa.dev`
+- Deploy with `pnpm deploy`
+
 ## Code Quality
 
 MUST run `pnpm ai:check` after concluding any changes.
